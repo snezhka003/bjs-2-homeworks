@@ -18,21 +18,15 @@ function solveEquation(a, b, c) {
 function calculateTotalMortgage(percent, contribution, amount, date) {
   let totalAmount;
 
-  if (Number.isNaN(+percent) === false) {
-    +percent;
-  } else {
+  if (Number.isNaN(+percent)) {
     return `Параметр \"Процентная ставка\" содержит неправильное значение \"${percent}\"`;
   }
 
-  if (Number.isNaN(+contribution) === false) {
-    +contribution;
-  } else {
+  if (Number.isNaN(+contribution)) {
     return `Параметр \"Начальный взнос\" содержит неправильное значение \"${contribution}\"`;
   }
 
-  if (Number.isNaN(+amount) === false) {
-    +amount;
-  } else {
+  if (Number.isNaN(+amount)) {
     return `Параметр \"Общая стоимость\" содержит неправильное значение \"${amount}\"`;
   }
 
