@@ -48,11 +48,10 @@ function makeWork(arrOfArr, func) {
 
 // Задание 3
 function worker2(arr) {
-  let min, max, diff;
+  let min, max;
 
   min = arr[0];
   max = arr[0];
-  diff = 0;
 
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] > max) {
@@ -60,11 +59,9 @@ function worker2(arr) {
     } else if (arr[i] < min) {
       min = arr[i];
     };
-
-    diff = Math.abs(max - min);
   }
 
-  return diff;
+  return Math.abs(max - min);
 }
 
 makeWork([[-10, -20, -40], [10, 20, 30]], worker2);
