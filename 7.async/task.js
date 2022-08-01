@@ -9,7 +9,6 @@ class AlarmClock {
             throw new Error ("Идентификатор будильника не передан!");
         } else if (this.alarmCollection.some(item => item.id === id)) {
             console.error("Будильник с этим id уже существует!");
-            callback();
         } else {
             this.alarmCollection.push({time, callback, id});
         }
@@ -40,7 +39,7 @@ class AlarmClock {
         if (this.timerId === null) {
             this.timerId = setInterval(() => {
                 this.alarmCollection.forEach (item => checkClock(item));
-            }, 60000);
+            }, 1000);
         }
     };
 
