@@ -4,12 +4,12 @@ function testCase() {
 
     phoneAlarmClock.addClock(phoneAlarmClock.getCurrentFormattedTime(), () => console.log("Подъем!"), 1);
 
-    phoneAlarmClock.addClock("14:45", () => {
+    phoneAlarmClock.addClock("18:07", () => {
         console.log("Пора вставать!");
         phoneAlarmClock.removeClock(phoneAlarmClock.timerId)        
     }, 2);
 
-    phoneAlarmClock.addClock("14:47", () => {
+    phoneAlarmClock.addClock("18:08", () => {
         console.log("Вставай уже наконец!!!");
         phoneAlarmClock.clearAlarms();
         phoneAlarmClock.printAlarms()        
@@ -20,4 +20,4 @@ function testCase() {
     phoneAlarmClock.start();
 }
 
-// testCase();
+testCase();

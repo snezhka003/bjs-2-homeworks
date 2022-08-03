@@ -20,7 +20,7 @@ class AlarmClock {
         if(deleteClock === -1) {
             return false;
         } else {
-            this.alarmCollection.splice([deleteClock], 1)[0];
+            this.alarmCollection.splice(deleteClock, 1);
             return true;
         }
     };
@@ -31,14 +31,14 @@ class AlarmClock {
 
     start() {
         let checkClock = clock => {
-            if (clock.alarmCollection.time === getCurrentFormattedTime()) {
-                callback();
+            if (clock.time === this.getCurrentFormattedTime()) {
+                clock.callback();
             }
         };
 
         if (this.timerId === null) {
             this.timerId = setInterval(() => {
-                this.alarmCollection.forEach (item => checkClock(item));
+                this.alarmCollection.forEach(clock => checkClock(clock));
             }, 1000);
         }
     };
@@ -53,11 +53,11 @@ class AlarmClock {
     printAlarms() {
         console.log(`Печать всех будильников: ${this.alarmCollection.length}`);
 
-        this.alarmCollection.forEach (item => console.log(`Будильник № ${item.id} заведен на ${item.time}`));
+        this.alarmCollection.forEach(item => console.log(`Будильник № ${item.id} заведен на ${item.time}`));
     };
 
     clearAlarms() {
         this.stop();
-        this.alarmCollection.length = 0;
+        this.alarmCollection = [];
     };
 }
